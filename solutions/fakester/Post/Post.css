@@ -1,0 +1,15 @@
+.Post {
+  width: 40%;
+  border-radius: 5px;
+  border: solid grey;
+  box-shadow: gainsboro;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.Post h5 {
+  text-align: left;
+  border-bottom: solid black;
+  background-color: lightgreen;
+  padding: 5px;
+}
