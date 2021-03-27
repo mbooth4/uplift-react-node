@@ -49,6 +49,12 @@ const App = () => {
                         Restaurant UI complete
                     </a>
                 </li>
+                <li>
+                    Full-stack Frontend:{" "}
+                    <a href="/solutions/restaurant-online/index.html">
+                        Restaurant-online
+                    </a>
+                </li>
             </ul>
         </div>
         <div>
