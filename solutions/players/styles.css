@@ -1,0 +1,18 @@
+body {
+    background-color: #124;
+    color: #E8E9EF;
+    font-family:'Segoe UI';
+}
+
+#root {
+    padding: 20px;
+    text-align: center;
+}
+
+#root > div > div {
+    border: 1px solid #587;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    width: 300px;
+}

@@ -19,6 +19,17 @@ const App = () => {
             </p>
         </div>
         <div>
+            <h3><a href="/projects/players/index.html">Basketball Players</a></h3>
+            <ul>
+                <li>
+                    Solution:{" "}
+                    <a href="/solutions/players/index.html">
+                        Basketball Players UI complete
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
             <h3><a href="/projects/fakester/index.html">Fakester</a></h3>
             <ul>
                 <li>
@@ -36,6 +47,17 @@ const App = () => {
                     Solution:{" "}
                     <a href="/solutions/restaurant/index.html">
                         Restaurant UI complete
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3><a href="/projects/todoapp/index.html">TODO App</a></h3>
+            <ul>
+                <li>
+                    Solution:{" "}
+                    <a href="/solutions/todoapp/index.html">
+                        TODO App UI complete
                     </a>
                 </li>
             </ul>

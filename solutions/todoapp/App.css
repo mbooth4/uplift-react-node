@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #F0F6FF;
+}
+
+#root {
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.TaskList {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 400px;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.TaskList > div {
+  padding: 10px;
+  border-bottom: 1px solid #BBB;
+  display: flex;
+  align-items: center;
+}
+
+.TaskList input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.AddItemForm {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 250px;
+  margin: 10px auto;
+}

@@ -67,7 +67,7 @@ const ITEMS = [
 export const App = () => {
   const [totalCost, setTotalCost] = React.useState(0);
   const [orders, setOrders] = React.useState([]);
-  const [selectedCategory, setSelectedCategory] = React.useState("all");
+  const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const orderClicked = (item) => {
     const existingOrderIndex = orders.findIndex((order) => {
@@ -95,7 +95,7 @@ export const App = () => {
   };
 
   const MenuCards = ITEMS.filter(item => {
-    return selectedCategory === "all" || item.category === selectedCategory
+    return selectedCategory === "All" || item.category === selectedCategory
   }).map((item) => {
     return (
       <MenuCard
