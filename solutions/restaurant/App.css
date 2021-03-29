@@ -110,3 +110,31 @@ select {
   border-radius: 5px;
   padding: 3px;
 }
+
+@media screen and (max-width: 768px) {
+  .restaurant {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .OrderCart {
+    width: auto;
+    height: auto;
+  }
+
+  .MenuCard {
+    height: 150px;
+    width: 200px;
+  }
+
+  .menu {
+    width: auto;
+    height: auto;
+    margin: 10px;
+  }
+
+  .food {
+    width: 80px;
+    height: 80px;
+  }
+}

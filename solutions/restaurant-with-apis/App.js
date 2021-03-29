@@ -1,34 +1,41 @@
 import React from 'react';
 import axios from 'axios';
+
 import './App.css';
 import OrderTypeSelector from './OrderTypeSelector/OrderTypeSelector';
 import MenuCard from './MenuCard/MenuCard';
 import OrderCart from './OrderCart/OrderCart';
-import CartContext from './CartContext';
-
-const CATEGORIES = [{ name: 'All' }, { name: 'Drink' }, { name: 'Food' }];
+import OrdersContext from "./OrdersContext";
 
 export const App = () => {
   const [orders, setOrders] = React.useState([]);
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const [items, setItems] = React.useState([]);
+  const [categories, setCategories] = React.useState([]);
 
+  // Use React.useEffect to query our backend
   React.useEffect(() => {
-    axios.get("http://localhost:3000/items")
-      .then((response) => {
+
+    axios.get("http://localhost:3000/items").then(
+      (response) => {
         setItems(response.data);
       });
+
+    axios.get("http://localhost:3000/categories").then(
+      (response) => {
+        setCategories(response.data);
+      }
+    );
+
+    axios.get("http://localhost:3000/orders").then(
+      (response) => {
+        setOrders(response.data);
+      }
+    )
   }, []);
 
-  React.useEffect(() => {
-    axios.get("http://localhost:3000/orders")
-    .then((response) => {
-      setOrders(response.data);
-    });
-  }, []);
-
-  const addToCart = (item) => {
+  const orderClicked = (item) => {
     const existingOrderIndex = orders.findIndex((order) => {
       return order.id === item.id;
     });
@@ -51,7 +58,7 @@ export const App = () => {
 
     setOrders(updatedOrders);
 
-    axios.put("http://localhost:3000/orders", updatedOrders);
+    axios.post("http://localhost:3000/orders", updatedOrders);
   };
 
   const MenuCards = items.filter(item => {
@@ -60,32 +67,29 @@ export const App = () => {
     return (
       <MenuCard
         key={item.id}
-        name={item.name}
-        price={item.price}
-        image={item.image}
-        onClick={() => addToCart(item)}
+        item={item}
       />
     );
   });
 
-  const cartContext = {
+  const ordersContext = {
     orders: orders,
-    addToCart: addToCart
+    addToCart: orderClicked
   };
 
   return (
     <div className="App">
-      <CartContext.Provider value={cartContext}>
+      <OrdersContext.Provider value={ordersContext}>
         <h1>Restaurant App</h1>
         <OrderTypeSelector
-          categories={CATEGORIES}
+          categories={categories}
           onChange={(category) => setSelectedCategory(category)}
         />
         <div className="restaurant">
           <div className="menu">{MenuCards}</div>
-          <OrderCart />
+          <OrderCart orders={orders} />
         </div>
-      </CartContext.Provider>
+      </OrdersContext.Provider>
     </div>
   );
 }
